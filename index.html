@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<!-- replace -->
+	<div data-replace="1:2">1</div>
+
+	<div data-replace="apple:demo">replace all of the apples with pears.</div>
+	
+
+	<!-- bind and loop -->
+	<div data-app>
+	
+		<!-- loop -->
+		<div data-loop="food" data-key="index" data-value="food">
+			I have <strong>{{index}}</strong> of <strong>{{food}}</strong>.<br/>
+		</div>
+
+		<input data-bind="demo">
+		<p>{{demo}}</p>
+
+		
+	</div>
+
+<script src="jquery.js"></script>
+<script src="app/alumi.js"></script>
+<script src="app/alumi.hooks.js"></script>
+<script src="app/alumi.bind.js"></script>
+<script src="app/alumi.replace.js"></script>
+<script src="app/alumi.loop.js"></script>
+<script>
+	alumi.scope = {
+		demo: 'Hiya',
+		food: ['Waffles', 'Cookies', 'Burgers', 'Pizza', 'Coffee', 'Muffins']
+
+	};
+
+	alumi.event('demo', 'mouseover', function(e) {
+		console.log('pressed a key');
+	});
+
+	$(window).load(function() {
+		alumi.init();
+	});
+	
+</script>
+</body>
+</html>
